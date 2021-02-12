@@ -1,67 +1,71 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-char nomes[100][20];
 char aux[20];
-int notas[100];
 
-void insertionSort(int arr[], char vetor[][20], int n) 
-{ 
-    int i, key, j;
-    char aux[20]; 
-    for (i = 1; i < n; i++) { 
-        key = arr[i];
-        stpcpy(aux, vetor[i]);
-        j = i - 1; 
+typedef struct {
+    char nome[20];
+    int nota;
+} Aluno;
 
-        while (j >= 0 && arr[j] > key) { 
-            arr[j + 1] = arr[j];
-            strcpy(vetor[j+1], vetor[j]);
-            j = j - 1; 
-        } 
-        arr[j + 1] = key; 
-        strcpy(vetor[j+1], aux);
-    } 
+Aluno alunos[100];
+
+int compararNota (const void *x, const void *y){
+    return (((Aluno *)x)->nota - ((Aluno *)y)->nota);
 }
 
-void insertionSortString(char arr[][20], int notas[], int n) 
-{ 
-    int i, j, chave;
-    char key[20]; 
-    for (i = 1; i < n; i++) { 
-        strcpy(key, arr[i]);
-        chave = notas[i];
-        j = i - 1; 
+int compararNome (const void *x, const void *y){
+    return strcmp(((Aluno *)x)->nome, ((Aluno *)y)->nome);
+}
 
-        while (j >= 0 && arr[j] > key) { 
-            strcpy(arr[j+1], arr[j]);
-            notas[j+1] = notas[j];
-            j = j - 1; 
-        } 
-        strcpy(arr[j+1], key);
-        notas[j+1] = chave;
-    } 
-} 
+int verificarReprovado(Aluno vetor[], int N){
+    int contador = 1;
+    int index = 0;
+    Aluno pos = vetor[0];
+    for(int i = 1; i < N; i++){
+        if(pos.nota == vetor[i].nota){
+            contador++;
+        }
+        else{
+            break;
+        }
+    }
+
+    if(contador > 1){
+        qsort(vetor, contador, sizeof(Aluno), compararNome);
+        return contador-1;
+    }
+    else{
+        return index;
+    }
+}
 
 int main(){
     int N;
     int i = 0;
     int num;
-    scanf("%d", &N);
+    int instancia = 1;
 
-    while(i < N){
-        scanf("%s", aux);
-        scanf("%d", &num);
+    while(scanf("%d", &N) != EOF){
+        while(i < N){
+            scanf("%s", aux);
+            scanf("%d", &num);
 
-        stpcpy(nomes[i], aux);
-        notas[i] = num;
+            stpcpy(alunos[i].nome, aux);
+            alunos[i].nota = num;
 
-        i++;
-    }
-    
-    insertionSortString(nomes, notas, N);
-    for(int i = 0; i < N; i++){
-        printf("%s %d\n", nomes[i], notas[i]);
+            i++;
+        }
+
+        qsort(alunos, N, sizeof(Aluno), compararNota);
+        
+        int result = verificarReprovado(alunos, N);
+        printf("Instancia %d\n", instancia);
+        printf("%s\n", alunos[result].nome);
+        instancia++;
+        i = 0;
+        printf("\n");
     }
 
     return 0;
