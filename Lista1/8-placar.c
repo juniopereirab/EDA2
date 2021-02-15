@@ -2,10 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 
-char aux[20];
+char aux[21];
 
 typedef struct {
-    char nome[20];
+    char nome[21];
     int nota;
 } Aluno;
 
