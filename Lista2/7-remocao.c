@@ -54,6 +54,17 @@ void push_backNode(Lista* lista, Node* no){
     lista->_size++;
 }
 
+void seacher_list(Lista *lista, unsigned long s, Lista *removed){
+    Node *no;
+    no = lista->head;
+    while(no){
+        if(no->hex == s){
+            push_back(&removed, s);
+            return;
+        }
+    }
+}
+
 int pop_back(Lista* lista){
   Node* no;
   char aux;
@@ -100,6 +111,8 @@ void print_list(Lista *lista){
 int main(){
     Node *aux, *aux2, *auxPrev, *auxNext, *aux2Prev, *aux2Next;
 
+    Node *n1, *n2, *n3;
+
     aux = (Node*) malloc(sizeof(Node));
     aux2 = (Node*) malloc(sizeof(Node));
     auxPrev = (Node*) malloc(sizeof(Node));
@@ -107,11 +120,15 @@ int main(){
     aux2Prev = (Node*) malloc(sizeof(Node));
     aux2Next = (Node*) malloc(sizeof(Node));
 
+    n1 = (Node*) malloc(sizeof(Node));
+    n2 = (Node*) malloc(sizeof(Node));
+    n3 = (Node*) malloc(sizeof(Node));
+
     Lista removed;
     init(&removed);
 
-    scanf("%lu %lu %lu", aux->hex, auxPrev->hex, auxNext->hex);
-    scanf("%lu %lu %lu", aux2->hex, aux2Prev->hex, aux2Next->hex);
+    scanf("%lu %lu %lu", &aux->hex, &auxPrev->hex, &auxNext->hex);
+    scanf("%lu %lu %lu", &aux2->hex, &aux2Prev->hex, &aux2Next->hex);
 
     aux->prev = auxPrev;
     aux->next = auxNext;
@@ -119,12 +136,7 @@ int main(){
     aux2->prev = aux2Prev;
     aux2->next = aux2Next; 
 
-    push_back(&removed, aux->hex);
-    
-    Lista list;
-    init(&list);
-
-    while(scanf("%lu %lu %lu", ))
+    //Organizar forma de ler a lista de forma desordenada.
 
     return 0;
 }
