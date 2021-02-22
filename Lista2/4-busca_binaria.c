@@ -11,15 +11,7 @@ recursive_binary_search(int *vector, int begin, int end, int item)
     }
 
     if (begin > end) {
-        if(i == 0){
-            return i;
-        }
-        else if(i == end) {
-            return i;
-        }
-        if(vector[i] < item && vector[i+1] > item){
-            return i;
-        }  /* Ponto de parada. Item não está no vetor */
+        return -1;
     }
     
 
