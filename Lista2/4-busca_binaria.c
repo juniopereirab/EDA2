@@ -10,8 +10,16 @@ recursive_binary_search(int *vector, int begin, int end, int item)
         return i;
     }
 
-    if (begin >= end) {  /* Ponto de parada. Item não está no vetor */
-        return i;
+    if (begin > end) {
+        if(i == 0){
+            return i;
+        }
+        else if(i == end) {
+            return i;
+        }
+        if(vector[i] < item && vector[i+1] > item){
+            return i;
+        }  /* Ponto de parada. Item não está no vetor */
     }
     
 
@@ -23,6 +31,39 @@ recursive_binary_search(int *vector, int begin, int end, int item)
         return recursive_binary_search(vector, begin, i - 1, item);
     }
 }    
+
+int buscar_iterativa(int item, const int *vector, int N){
+    int a = 0, b = N - 1, m = 0;
+
+    while(a <= b){
+        m = a + (b-a)/2;
+
+        if(vector[m] == item){
+            return m;
+        }
+
+        else if(vector[m] > item){
+            b = m - 1;
+        }
+        else{
+            a = m + 1;
+        }
+    }
+
+    if(a > b){
+        if(m == N-1){
+            return m+1;
+        }
+        else if(m == 0){
+            return m;
+        }
+        else if(vector[m] < item && vector[m+1] > item){
+            return m+1;
+        }
+    }
+    return m;
+   
+}
 
 int main(){
     int n, m, aux;
@@ -37,7 +78,7 @@ int main(){
 
     for(int i = 0; i < m; i++){
         scanf("%d", &aux);
-        printf("%d\n", recursive_binary_search(vetor, 0, n, aux));
+        printf("%d\n", buscar_iterativa(aux, vetor, n));
     }
 
     return 0;

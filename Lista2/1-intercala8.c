@@ -3,168 +3,16 @@
 
 #define MAX 1000000
 
-int A[MAX];
-int B[MAX];
-int C[MAX];
-int D[MAX];
-int E[MAX];
-int F[MAX];
-int G[MAX];
-int H[MAX];
+int *intercala(int *a, int *b, int n, int m);
+int *intercala4(int *a, int *b, int *c, int *d, int m, int n, int o, int p);
+int *intercala8(int *a, int *b, int *c, int *d, int *e, int *f, int *g, int *h, int m, int n, int o, int p, int q, int r, int s, int t);
 
-int W[MAX];
-int X[MAX];
-int Y[MAX];
-int Z[MAX];
-
-int J[MAX];
-int K[MAX];
-int L[MAX];
-
-void intercala2W(int A[], int M, int B[], int N){
-  int i = 0, j = 0, k = 0;
-  while(i < M && j < N){
-    if(A[i] < B[j]){
-      W[k] = A[i];
-      i++;
-      k++;
-    }
-    else{
-      W[k] = B[j];
-      j++;
-      k++;
-    }
-  }
-
-  if(i < M){W[k] = A[i]; i++; k++;}
-  if(j < N){W[k] = B[j]; j++; k++;}
-
-}
-
-void intercala2X(int A[], int M, int B[], int N){
-  int i = 0, j = 0, k = 0;
-  while(i < M && j < N){
-    if(A[i] < B[j]){
-      X[k] = A[i];
-      i++;
-      k++;
-    }
-    else{
-      X[k] = B[j];
-      j++;
-      k++;
-    }
-  }
-
-  if(i < M){X[k] = A[i]; i++; k++;}
-  if(j < N){X[k] = B[j]; j++; k++;}
-
-}
-
-void intercala2Y(int A[], int M, int B[], int N){
-  int i = 0, j = 0, k = 0;
-  while(i < M && j < N){
-    if(A[i] < B[j]){
-      Y[k] = A[i];
-      i++;
-      k++;
-    }
-    else{
-      Y[k] = B[j];
-      j++;
-      k++;
-    }
-  }
-
-  if(i < M){Y[k] = A[i]; i++; k++;}
-  if(j < N){Y[k] = B[j]; j++; k++;}
-
-}
-
-void intercala2Z(int A[], int M, int B[], int N){
-  int i = 0, j = 0, k = 0;
-  while(i < M && j < N){
-    if(A[i] < B[j]){
-      Z[k] = A[i];
-      i++;
-      k++;
-    }
-    else{
-      Z[k] = B[j];
-      j++;
-      k++;
-    }
-  }
-
-  if(i < M){Z[k] = A[i]; i++; k++;}
-  if(j < N){Z[k] = B[j]; j++; k++;}
-
-}
-
-void intercala2J(int A[], int M, int B[], int N){
-  int i = 0, j = 0, k = 0;
-  while(i < M && j < N){
-    if(A[i] < B[j]){
-      J[k] = A[i];
-      i++;
-      k++;
-    }
-    else{
-      J[k] = B[j];
-      j++;
-      k++;
-    }
-  }
-
-  if(i < M){J[k] = A[i]; i++; k++;}
-  if(j < N){J[k] = B[j]; j++; k++;}
-
-}
-
-void intercala2K(int A[], int M, int B[], int N){
-  int i = 0, j = 0, k = 0;
-  while(i < M && j < N){
-    if(A[i] < B[j]){
-      K[k] = A[i];
-      i++;
-      k++;
-    }
-    else{
-      K[k] = B[j];
-      j++;
-      k++;
-    }
-  }
-
-  if(i < M){K[k] = A[i]; i++; k++;}
-  if(j < N){K[k] = B[j]; j++; k++;}
-
-}
-
-void intercala2L(int A[], int M, int B[], int N){
-  int i = 0, j = 0, k = 0;
-  while(i < M && j < N){
-    if(A[i] < B[j]){
-      L[k] = A[i];
-      i++;
-      k++;
-    }
-    else{
-      L[k] = B[j];
-      j++;
-      k++;
-    }
-  }
-
-  if(i < M){L[k] = A[i]; i++; k++;}
-  if(j < N){L[k] = B[j]; j++; k++;}
-
-}
-
-int main(void) {
-  int tam;
-
+int main() {
+  int *A, *B, *C, *D, *E, *F, *G, *H;
+  
+  int tam = 0;
   scanf("%d", &tam);
+  A = malloc(sizeof(int) * tam);
   int i = 0;
   int M = tam;
   while(tam--){
@@ -172,7 +20,9 @@ int main(void) {
     i++;
   }
   
+  tam = 0;
   scanf("%d", &tam);
+  B = malloc(sizeof(int) * tam);
   i = 0;
   int N = tam;
   while(tam--){
@@ -180,7 +30,9 @@ int main(void) {
     i++;
   }
 
+  tam = 0;
   scanf("%d", &tam);
+  C = malloc(sizeof(int) * tam);
   i = 0;
   int O = tam;
   while(tam--){
@@ -188,7 +40,9 @@ int main(void) {
     i++;
   }
 
-  scanf("%d", &tam);  
+  tam = 0;
+  scanf("%d", &tam);
+  D = malloc(sizeof(int) * tam); 
   i = 0;
   int P = tam;
   while(tam--){
@@ -196,7 +50,9 @@ int main(void) {
     i++;
   }
  
+  tam = 0;
   scanf("%d", &tam);
+  E = malloc(sizeof(int) * tam);
   i = 0;
   int Q = tam;
   while(tam--){
@@ -204,7 +60,9 @@ int main(void) {
     i++;
   }
   
+  tam = 0;
   scanf("%d", &tam);
+  F = malloc(sizeof(int) * tam);
   i = 0;
   int R = tam;
   while(tam--){
@@ -212,7 +70,9 @@ int main(void) {
     i++;
   }
  
+  tam = 0;
   scanf("%d", &tam);
+  G = malloc(sizeof(int) * tam);
   i = 0;
   int S = tam;
   while(tam--){
@@ -220,84 +80,70 @@ int main(void) {
     i++;
   }
   
+  tam = 0;
   scanf("%d", &tam);
+  H = malloc(sizeof(int) * tam);
   i = 0;
   int T = tam;
   while(tam--){
     scanf("%d", &H[i]);
     i++;
   }
-   
-  intercala2W(A, M, B, N);
-  intercala2X(C, O, D, P);
-  intercala2Y(E, Q, F, R);
-  intercala2Z(G, S, H, T);
-  intercala2J(W, M+N, X, O+P);
-  intercala2K(Y, Q+R, Z, S+T);
-  intercala2L(J, M+N+O+P, K, Q+R+S+T);
 
-  for(int i = 0; i < M+N; i++){
-    if(i == (M+N)-1){
-      printf("%d\n", W[i]);
-    }
-    else{
-      printf("%d ", W[i]);
-    }
-  }
+  int *X = intercala8(A, B, C, D, E, F, G, H, M, N, O, P, Q, R, S, T);
 
-  for(int i = 0; i < O+P; i++){
-    if(i == (O+P)-1){
+  for(int i = 0; i < M+N+O+P+Q+R+S+T; i++){
+    if(i == (M+N+O+P+Q+R+S+T)-1){
       printf("%d\n", X[i]);
     }
     else{
       printf("%d ", X[i]);
     }
   }
-
-  for(int i = 0; i < Q+R; i++){
-    if(i == (Q+R)-1){
-      printf("%d\n", Y[i]);
-    }
-    else{
-      printf("%d ", Y[i]);
-    }
-  }
-
-  for(int i = 0; i < S+T; i++){
-    if(i == (S+T)-1){
-      printf("%d\n", Z[i]);
-    }
-    else{
-      printf("%d ", Z[i]);
-    }
-  }
-
-  for(int i = 0; i < M+N+O+P; i++){
-    if(i == (M+N+O+P)-1){
-      printf("%d\n", J[i]);
-    }
-    else{
-      printf("%d ", J[i]);
-    }
-  }
-
-  for(int i = 0; i < Q+R+S+T; i++){
-    if(i == (Q+R+S+T)-1){
-      printf("%d\n", K[i]);
-    }
-    else{
-      printf("%d ", K[i]);
-    }
-  }
-
-  for(int i = 0; i < M+N+O+P+Q+R+S+T; i++){
-    if(i == (M+N+O+P+Q+R+S+T)-1){
-      printf("%d\n", L[i]);
-    }
-    else{
-      printf("%d ", L[i]);
-    }
-  }
   return 0;
 }
 
+int *intercala8(int *a, int *b, int *c, int *d, int *e, int *f, int *g, int *h, int m, int n, int o, int p, int q, int r, int s, int t){
+  int *x, *y, *z;
+  x = intercala4(a, b, c, d, m, n, o, p);
+  y = intercala4(e, f, g, h, q, r, s, t);
+  z = intercala(x, y, (m+n+o+p), (q+r+s+t));
+  return z;
+}
+
+int *intercala4(int *a, int *b, int *c, int *d, int m, int n, int o, int p){
+  int *x, *y, *z;
+  x = intercala(a, b, m, n);
+  y = intercala(c, d, o, p);
+  z = intercala(x, y, (m+n), (o+p));
+
+  return z;
+}
+
+int *intercala(int *a, int *b, int n, int m){
+    int i = 0, j = 0;
+    int *c = (int*)malloc((n + m)*sizeof(int));
+    int k = 0;
+    while((i + j) < (n + m)){
+        if(i >= n){
+            for (; j < m; j++, k++){
+                c[k] = b[j];
+            }
+            break;
+        }
+        else if(j >= m){
+            for (; i < n; i++, k++){
+                c[k] = a[i];
+            }
+            break;
+        }
+        if (a[i] < b[j])
+            c[k] = a[i++];
+
+        else 
+            c[k] = b[j++];
+
+        k++;
+    } 
+    return c;
+}

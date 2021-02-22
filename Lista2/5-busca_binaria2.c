@@ -28,30 +28,44 @@ recursive_binary_search(int *vector, int begin, int end, int item)
     }
 }    
 
+int retorna_posicao(int *vector, int n, int item){
+    for(int i = 0; i < n; i++){
+        if(vector[i] == item){
+            return i;
+        }
+    }
+
+    return -1;
+}
+
 int main(){
-    int n, m, auxi, indice;
+    int n, m, aux, achou;
 
     int *vetor;
+    int *original;
 
     scanf("%d %d", &n, &m);
 
     vetor = malloc(sizeof(int) * n);
+    original = malloc(sizeof(int) * n);
     for(int i = 0; i < n; i++){
-        scanf("%d", &vetor[i]);
+        scanf("%d", &aux);
+        vetor[i] = aux;
+        original[i] = aux;
     }
 
     qsort(vetor, n, sizeof(int), compare);
 
-    for(int i = 0; i < n; i++){
-        printf("%d\n", vetor[i]);
-    }
     for(int i = 0; i < m; i++){
-        scanf("%d", &auxi);
-        printf("%d\n", recursive_binary_search(vetor, 0, n, auxi));
+        scanf("%d", &aux);
+        achou = recursive_binary_search(vetor, 0, n, aux);
+        if(achou != -1){
+            printf("%d\n", retorna_posicao(original, n, aux));
+        }
+        else {
+            printf("-1\n");
+        }
     }
-
-    //Ta errado pelo fato de que, tem que retornar baseado no valor do indice dentro do vetor original e nao do vetor ordenado.
-
     return 0;
 
 }
