@@ -37,7 +37,7 @@ int main() {
     int N;
     int aux;
     int i;
-    int maior = 0   ;
+    int maior = 0;
     int menor = 0;
     int res;
     while(scanf("%d", &N) && N){
